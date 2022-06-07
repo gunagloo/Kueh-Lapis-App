@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
@@ -16,18 +15,18 @@ function HomeScreen() {
   ])
 
   function renderItem({ item }) {
-    return <BlockRGB red={item.red} green={item.green} blue={item.blue} />
+    return (<BlockRGB red={item.red} green={item.green} blue={item.blue} />)
   }
 
   function addColor() {
-    setColorArray([
-      ...colorArray,
+    setColorArray([       // this setColorArray sets a new array
+      ...colorArray,  // ... is old contents 
       {
         red: Math.floor(Math.random() * 256),
         green: Math.floor(Math.random() * 256),
         blue: Math.floor(Math.random() * 256),
-        id: `${colorArray.length}`
-      }
+        id: `${colorArray.length}` // generates a new color below with random RGB and
+      }                            // its id to the current length of the arrray, `{}` is to make it into a string
     ])
   }
 
